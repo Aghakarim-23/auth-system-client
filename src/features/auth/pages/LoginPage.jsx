@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form'
-
+import { useMutation } from "@tanstack/react-query";
+import api from "../../../api/axios"
 const LoginPage = () => {
   const {
     register,
@@ -7,8 +8,16 @@ const LoginPage = () => {
     formState: { errors, isSubmitting },
   } = useForm()
 
+    const { mutate, isPending } = useMutation({
+    mutationFn: (data) => api.post("/api/auth/login", data),
+    onSuccess: (res) => {
+      console.log(res.data);
+      localStorage.setItem("token", res.data.token);
+    },
+  });
+
   const onSubmit = async (data) => {
-    console.log(data)
+    mutate(data);
   }
 
   return (
