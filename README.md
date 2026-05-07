@@ -1,16 +1,34 @@
-# React + Vite
+# Auth System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack web app I built with React. It has user authentication, a profile page, and a posts section.
 
-Currently, two official plugins are available:
+## What it does
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- You can **register** and **log in** with your account
+- After logging in, you can see your **profile** — your name, email, and user ID
+- From the profile page you can go to **My Posts** to see all your posts
+- Each post is clickable and opens a **detail page** with the full content
+- You can also update your **display name** from the settings page
+- Pages like profile, settings, and posts are protected — only logged in users can access them
 
-## React Compiler
+## Pages
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Path | Description |
+|---|---|
+| `/` | Home |
+| `/about` | About |
+| `/contact` | Contact |
+| `/login` | Login |
+| `/register` | Register |
+| `/profile` | Your profile (private) |
+| `/settings` | Update your name (private) |
+| `/my-posts` | All your posts (private) |
+| `/my-posts/:id` | Single post detail (private) |
 
-## Expanding the ESLint configuration
+## Tech used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React + Vite
+- React Router
+- TanStack React Query
+- Tailwind CSS
+- Axios

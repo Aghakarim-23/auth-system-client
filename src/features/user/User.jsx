@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import api from "../../api/axios";
 
@@ -71,6 +72,21 @@ const User = () => {
               <Row icon={<PersonIcon />} label="Full Name" value={user?.name} />
               <Row icon={<MailIcon />} label="Email" value={user?.email} />
             </div>
+
+            {/* Divider */}
+            <div className="border-t border-slate-100 mt-5 mb-4" />
+
+            <Link
+              to="/my-posts"
+              className="flex items-center justify-between w-full px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
+            >
+              <span className="text-sm font-medium text-slate-600 group-hover:text-indigo-500 transition-colors">
+                My Posts
+              </span>
+              <svg className="w-4 h-4 text-slate-400 group-hover:text-indigo-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
           </div>
         </div>
 
