@@ -10,6 +10,8 @@ import GuestRoute from "./routes/GuestRote";
 import PrivateRoute from "./routes/PrivateRoute";
 import User from "./features/user/User"
 import Settings from "./features/user/Settings";
+import MyPosts from "./features/posts/MyPosts";
+import PostDetail from "./features/posts/PostDetail";
 
 const App = () => {
   return (
@@ -30,6 +32,10 @@ const App = () => {
         </Route>
         <Route path="/settings" element={<PrivateRoute />}>
           <Route index element={<Settings />} />
+        </Route>
+        <Route path="/my-posts" element={<PrivateRoute />}>
+          <Route index element={<MyPosts />} />
+          <Route path=":id" element={<PostDetail />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

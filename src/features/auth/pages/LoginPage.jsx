@@ -47,7 +47,7 @@ const LoginPage = () => {
               className={`w-full px-4 py-2.5 rounded-lg border text-sm outline-none transition focus:ring-2 focus:ring-blue-500 ${
                 errors.email ? "border-red-400 bg-red-50" : "border-gray-300"
               }`}
-              value={"con@mail.ru"}
+              value={"con1@mail.ru"}
               {...register("email", {
                 required: "Email is required",
                 pattern: {
