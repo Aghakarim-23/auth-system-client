@@ -1,6 +1,6 @@
 # Auth System
 
-A full-stack web app I built with React. It has user authentication, a profile page, and a posts section.
+A frontend web app I built with React. It has user authentication, a profile page, and a posts section.
 
 ## What it does
 
