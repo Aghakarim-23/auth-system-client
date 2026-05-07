@@ -1,8 +1,10 @@
 import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 import api from "../../../api/axios";
+import { useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -15,6 +17,7 @@ const RegisterPage = () => {
     onSuccess: (res) => {
       console.log(res.data);
       localStorage.setItem("token", res.data.token);
+      navigate("/login");
     },
   });
 

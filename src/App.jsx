@@ -6,6 +6,10 @@ import Navbar from "./components/Navbar";
 import LoginPage from "./features/auth/pages/LoginPage";
 import RegisterPage from "./features/auth/pages/RegisterPage";
 import NotFound from "./features/pages/NotFound";
+import GuestRoute from "./routes/GuestRote";
+import PrivateRoute from "./routes/PrivateRoute";
+import User from "./features/user/User"
+import Settings from "./features/user/Settings";
 
 const App = () => {
   return (
@@ -15,8 +19,18 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<GuestRoute />}>
+          <Route index element={<LoginPage />} />
+        </Route>
+        <Route path="/register" element={<GuestRoute />}>
+          <Route index element={<RegisterPage />} />
+        </Route>
+        <Route path="/profile" element={<PrivateRoute />}>
+          <Route index element={<User />} />
+        </Route>
+        <Route path="/settings" element={<PrivateRoute />}>
+          <Route index element={<Settings />} />
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

@@ -3,6 +3,11 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const token = localStorage.getItem("token");
+  const [user, setUser] = useState(() => {
+    const storedUser = localStorage.getItem("user");
+    return storedUser ? JSON.parse(storedUser) : null;
+  });
 
   const linkClass = ({ isActive }) =>
     isActive
@@ -24,7 +29,9 @@ const Navbar = () => {
       </div>
 
       {/* Desktop Auth Buttons */}
-      <div className="hidden md:flex items-center gap-3">
+   {
+    !token && (
+         <div className="hidden md:flex items-center gap-3">
         <NavLink to="/login" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
           Login
         </NavLink>
@@ -32,6 +39,8 @@ const Navbar = () => {
           Sign up
         </NavLink>
       </div>
+    )
+   }
 
       {/* Hamburger Button (mobile only) */}
       <button
@@ -50,7 +59,8 @@ const Navbar = () => {
           <NavLink to="/" end className={linkClass} onClick={() => setMenuOpen(false)}>Home</NavLink>
           <NavLink to="/about" className={linkClass} onClick={() => setMenuOpen(false)}>About</NavLink>
           <NavLink to="/contact" className={linkClass} onClick={() => setMenuOpen(false)}>Contact</NavLink>
-          <div className="border-t border-slate-100 mt-2 pt-3 flex flex-col gap-2">
+        {!token && (
+            <div className="border-t border-slate-100 mt-2 pt-3 flex flex-col gap-2">
             <NavLink to="/login" className="px-4 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors" onClick={() => setMenuOpen(false)}>
               Login
             </NavLink>
@@ -58,6 +68,7 @@ const Navbar = () => {
               Sign up
             </NavLink>
           </div>
+        )}
         </div>
       )}
     </nav>
